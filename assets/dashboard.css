@@ -1,0 +1,1156 @@
+/**
+ * Ars Nova Season Dashboard styles.
+ *
+ * Tweak the CSS variables below to change colors without touching the rest.
+ */
+
+.ans-dash {
+	--ans-p1: #d63638;      /* P1 red */
+	--ans-p2: #e07c00;      /* P2 orange */
+	--ans-p3: #dba617;      /* P3 yellow */
+	--ans-p4: #787c82;      /* P4 gray */
+	--ans-overdue: #d63638;
+	--ans-border: #d5d9de;
+	--ans-bg: #f6f7f8;
+	--ans-card-bg: #ffffff;
+	--ans-accent: #2b5797;  /* Toolbar accent / buttons */
+	--ans-text: #1d2327;
+	--ans-muted: #646970;
+
+	color: var(--ans-text);
+	font-size: 14px;
+	line-height: 1.45;
+	max-width: 100%;
+}
+
+/* ------------------------------------------------------------------ */
+/* Login prompt                                                        */
+/* ------------------------------------------------------------------ */
+
+.ans-dash-login-required {
+	border: 1px solid var(--ans-border, #d5d9de);
+	border-radius: 8px;
+	padding: 24px;
+	text-align: center;
+	background: #f6f7f8;
+}
+
+.ans-dash-login-link {
+	display: inline-block;
+	padding: 8px 20px;
+	border-radius: 4px;
+	background: #2b5797;
+	color: #fff;
+	text-decoration: none;
+	font-weight: 600;
+}
+
+/* ------------------------------------------------------------------ */
+/* Toolbar                                                             */
+/* ------------------------------------------------------------------ */
+
+.ans-dash-toolbar {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px;
+	padding: 10px 0;
+}
+
+.ans-dash-toolbar select,
+.ans-dash-search {
+	padding: 5px 8px;
+	border: 1px solid var(--ans-border);
+	border-radius: 4px;
+	background: #fff;
+	font-size: 13px;
+	max-width: 100%;
+}
+
+.ans-dash-search {
+	flex: 1 1 160px;
+	min-width: 140px;
+}
+
+.ans-dash-btn {
+	padding: 6px 12px;
+	border: 1px solid var(--ans-border);
+	border-radius: 4px;
+	background: #fff;
+	color: var(--ans-text);
+	cursor: pointer;
+	font-size: 13px;
+}
+
+.ans-dash-btn:hover {
+	border-color: var(--ans-accent);
+	color: var(--ans-accent);
+}
+
+.ans-dash-my-tasks.is-on,
+.ans-dash-layout-btn.is-on {
+	background: var(--ans-accent);
+	border-color: var(--ans-accent);
+	color: #fff;
+	font-weight: 600;
+}
+
+.ans-dash-layout-group {
+	display: inline-flex;
+}
+
+.ans-dash-layout-group .ans-dash-layout-btn {
+	border-radius: 0;
+	margin-left: -1px;
+}
+
+.ans-dash-layout-group .ans-dash-layout-btn:first-child {
+	border-radius: 4px 0 0 4px;
+	margin-left: 0;
+}
+
+.ans-dash-layout-group .ans-dash-layout-btn:last-child {
+	border-radius: 0 4px 4px 0;
+}
+
+.ans-dash-new-task {
+	font-weight: 600;
+	color: var(--ans-accent);
+	border-color: var(--ans-accent);
+}
+
+.ans-dash-columns {
+	position: relative;
+}
+
+.ans-dash-columns > summary {
+	cursor: pointer;
+	padding: 6px 12px;
+	border: 1px solid var(--ans-border);
+	border-radius: 4px;
+	background: #fff;
+	list-style: none;
+	font-size: 13px;
+}
+
+.ans-dash-columns-box {
+	position: absolute;
+	z-index: 30;
+	top: calc(100% + 4px);
+	left: 0;
+	background: #fff;
+	border: 1px solid var(--ans-border);
+	border-radius: 6px;
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+	padding: 10px 14px;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	min-width: 140px;
+}
+
+.ans-dash-field-toggle {
+	white-space: nowrap;
+	font-size: 13px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Notices + owner banner                                              */
+/* ------------------------------------------------------------------ */
+
+.ans-dash-notice {
+	margin: 6px 0;
+	padding: 8px 12px;
+	border-radius: 4px;
+	background: #e6f4ea;
+	border: 1px solid #9fd4ab;
+}
+
+.ans-dash-notice.is-error {
+	background: #fcebea;
+	border-color: #e8a0a2;
+	color: #8a1f21;
+}
+
+.ans-dash-owner-banner {
+	margin: 6px 0;
+	padding: 10px 12px;
+	border-radius: 4px;
+	background: #fff8e5;
+	border: 1px solid #e5c878;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Summary tiles                                                       */
+/* ------------------------------------------------------------------ */
+
+.ans-dash-summary {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin: 6px 0 14px;
+}
+
+.ans-dash-tile {
+	background: var(--ans-card-bg);
+	border: 1px solid var(--ans-border);
+	border-radius: 6px;
+	padding: 8px 14px;
+	min-width: 78px;
+	text-align: center;
+}
+
+.ans-dash-tile-value {
+	display: block;
+	font-size: 20px;
+	font-weight: 700;
+}
+
+.ans-dash-tile-label {
+	display: block;
+	font-size: 11px;
+	color: var(--ans-muted);
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+
+.ans-dash-tile.is-overdue .ans-dash-tile-value {
+	color: var(--ans-overdue);
+}
+
+.ans-dash-tile.is-duesoon .ans-dash-tile-value {
+	color: var(--ans-p2);
+}
+
+/* ------------------------------------------------------------------ */
+/* Kanban board                                                        */
+/* ------------------------------------------------------------------ */
+
+.ans-dash-board {
+	display: grid;
+	grid-template-columns: repeat(6, minmax(190px, 1fr));
+	gap: 10px;
+	align-items: start;
+	overflow-x: auto;
+	padding-bottom: 8px;
+}
+
+@media (max-width: 1100px) {
+	.ans-dash-board {
+		grid-template-columns: repeat(3, minmax(190px, 1fr));
+	}
+}
+
+@media (max-width: 640px) {
+	.ans-dash-board {
+		grid-template-columns: 1fr;
+	}
+}
+
+.ans-dash-col {
+	background: var(--ans-bg);
+	border: 1px solid var(--ans-border);
+	border-radius: 8px;
+	padding: 8px;
+	min-height: 120px;
+}
+
+.ans-dash-col.is-drop-target {
+	outline: 2px dashed var(--ans-accent);
+	outline-offset: -3px;
+	background: #eef3fa;
+}
+
+.ans-dash-col-head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 2px 4px 8px;
+}
+
+.ans-dash-col-title {
+	margin: 0;
+	font-size: 13px;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: var(--ans-muted);
+}
+
+.ans-dash-col-count {
+	background: #fff;
+	border: 1px solid var(--ans-border);
+	border-radius: 10px;
+	font-size: 11px;
+	padding: 1px 8px;
+	color: var(--ans-muted);
+}
+
+.ans-dash-col-cards {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	min-height: 40px;
+}
+
+/* Cards */
+
+.ans-dash-card {
+	background: var(--ans-card-bg);
+	border: 1px solid var(--ans-border);
+	border-radius: 6px;
+	padding: 10px;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.ans-dash[data-write="1"] .ans-dash-card {
+	cursor: grab;
+}
+
+.ans-dash-card.is-dragging {
+	opacity: 0.5;
+}
+
+.ans-dash-card-head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 4px;
+}
+
+.ans-dash-card-id {
+	font-size: 11px;
+	font-weight: 600;
+	color: var(--ans-muted);
+	letter-spacing: 0.03em;
+}
+
+.ans-dash-card-task {
+	margin: 0 0 8px;
+	font-size: 13px;
+	font-weight: 500;
+	word-break: break-word;
+}
+
+.ans-dash-card-meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+	align-items: center;
+}
+
+.ans-dash-card-owner-select {
+	font-size: 12px;
+	padding: 2px 4px;
+	border: 1px solid var(--ans-border);
+	border-radius: 4px;
+	max-width: 100%;
+}
+
+/* Chips */
+
+.ans-dash-chip {
+	display: inline-block;
+	font-size: 11px;
+	padding: 2px 8px;
+	border-radius: 10px;
+	background: #eef1f4;
+	color: var(--ans-text);
+	max-width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.ans-dash-chip-owner {
+	background: #e7effa;
+	color: #1d3f6e;
+	font-weight: 600;
+}
+
+.ans-dash-chip-bucket {
+	background: #eee9f7;
+	color: #4a3577;
+}
+
+.ans-dash-chip-event {
+	background: #e8f5ee;
+	color: #1d5c3a;
+}
+
+.ans-dash-chip-due.is-overdue,
+.ans-dash-table td.is-overdue {
+	background: #fcebea;
+	color: var(--ans-overdue);
+	font-weight: 700;
+}
+
+/* Priority badges: P1 red, P2 orange, P3 yellow, P4 gray */
+
+.ans-dash-priority {
+	display: inline-block;
+	font-size: 11px;
+	font-weight: 700;
+	padding: 1px 8px;
+	border-radius: 10px;
+	color: #fff;
+}
+
+.ans-dash-priority-p1 { background: var(--ans-p1); }
+.ans-dash-priority-p2 { background: var(--ans-p2); }
+.ans-dash-priority-p3 { background: var(--ans-p3); color: #3b3000; }
+.ans-dash-priority-p4 { background: var(--ans-p4); }
+
+/* ------------------------------------------------------------------ */
+/* List layout                                                         */
+/* ------------------------------------------------------------------ */
+
+.ans-dash-list-group {
+	margin-bottom: 10px;
+	border: 1px solid var(--ans-border);
+	border-radius: 8px;
+	background: var(--ans-card-bg);
+	overflow: hidden;
+}
+
+.ans-dash-list-group-head {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	width: 100%;
+	padding: 10px 12px;
+	background: var(--ans-bg);
+	border: 0;
+	cursor: pointer;
+	font-size: 13px;
+	font-weight: 600;
+	text-align: left;
+	color: var(--ans-text);
+}
+
+.ans-dash-list-group-title {
+	flex: 1;
+}
+
+.ans-dash-table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.ans-dash-table th,
+.ans-dash-table td {
+	padding: 8px 12px;
+	text-align: left;
+	border-top: 1px solid #eceef0;
+	font-size: 13px;
+	vertical-align: top;
+}
+
+.ans-dash-table th {
+	font-size: 11px;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	color: var(--ans-muted);
+	border-top: 0;
+}
+
+.ans-dash-td-id {
+	white-space: nowrap;
+	color: var(--ans-muted);
+	font-weight: 600;
+}
+
+/* ------------------------------------------------------------------ */
+/* Checklist layout (two columns: Open | Done)                         */
+/* ------------------------------------------------------------------ */
+
+.ans-dash-checklist {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 10px;
+	align-items: start;
+}
+
+@media (max-width: 782px) {
+	.ans-dash-checklist {
+		grid-template-columns: 1fr;
+	}
+}
+
+.ans-dash-check-col {
+	background: var(--ans-bg);
+	border: 1px solid var(--ans-border);
+	border-radius: 8px;
+	padding: 8px;
+	min-height: 120px;
+}
+
+.ans-dash-check-col .ans-dash-empty {
+	padding: 10px 6px;
+}
+
+.ans-dash-check-rows {
+	list-style: none;
+	margin: 0;
+	padding: 4px 0;
+	background: var(--ans-card-bg);
+	border: 1px solid var(--ans-border);
+	border-radius: 6px;
+}
+
+.ans-dash-check-row {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+	padding: 9px 14px;
+	border-top: 1px solid #eceef0;
+}
+
+.ans-dash-check-row:first-child {
+	border-top: 0;
+}
+
+.ans-dash-check-box {
+	width: 20px;
+	height: 20px;
+	margin: 1px 0 0;
+	flex: 0 0 auto;
+	accent-color: var(--ans-accent);
+	cursor: pointer;
+}
+
+.ans-dash-check-box:disabled {
+	cursor: not-allowed;
+}
+
+.ans-dash-check-main {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 4px 10px;
+	min-width: 0;
+}
+
+.ans-dash-check-task {
+	font-size: 14px;
+	word-break: break-word;
+}
+
+.ans-dash-check-row.is-done {
+	opacity: 0.6;
+}
+
+.ans-dash-check-row.is-done .ans-dash-check-task {
+	text-decoration: line-through;
+	color: var(--ans-muted);
+}
+
+.ans-dash-check-meta {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 12px;
+	color: var(--ans-muted);
+	white-space: nowrap;
+}
+
+.ans-dash-check-due.is-overdue {
+	color: var(--ans-overdue);
+	font-weight: 700;
+}
+
+/* Priority dot: reuses the P1–P4 color variables */
+
+.ans-dash-dot {
+	display: inline-block;
+	width: 9px;
+	height: 9px;
+	border-radius: 50%;
+	flex: 0 0 auto;
+}
+
+.ans-dash-dot-p1 { background: var(--ans-p1); }
+.ans-dash-dot-p2 { background: var(--ans-p2); }
+.ans-dash-dot-p3 { background: var(--ans-p3); }
+.ans-dash-dot-p4 { background: var(--ans-p4); }
+
+.ans-dash-dot-none {
+	background: #d5d9de;
+	border: 1px solid #b8bec5;
+}
+
+.ans-dash-dot.is-clickable {
+	cursor: pointer;
+}
+
+.ans-dash-dot.is-clickable:hover,
+.ans-dash-dot.is-clickable:focus-visible {
+	outline: 2px solid var(--ans-accent, #2b5797);
+	outline-offset: 1px;
+}
+
+/* Color palette popover (clicking the dot) */
+
+.ans-dash-color-pop {
+	z-index: 100001;
+	display: flex;
+	gap: 6px;
+	padding: 8px;
+	background: #fff;
+	border: 1px solid var(--ans-border, #d5d9de);
+	border-radius: 8px;
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+}
+
+.ans-dash-color-swatch {
+	width: 22px;
+	height: 22px;
+	border-radius: 50%;
+	border: 2px solid transparent;
+	padding: 0;
+	cursor: pointer;
+	font-size: 13px;
+	line-height: 1;
+}
+
+.ans-dash-color-swatch.is-auto {
+	background: #fff;
+	border-color: #d5d9de;
+	color: #646970;
+}
+
+.ans-dash-color-swatch.is-current {
+	border-color: #1d2327;
+}
+
+.ans-dash-color-swatch:hover,
+.ans-dash-color-swatch:focus-visible {
+	outline: 2px solid var(--ans-accent, #2b5797);
+	outline-offset: 1px;
+}
+
+/* ------------------------------------------------------------------ */
+/* v1.2.0 additions: undo toast, drag-order, subtasks, chips, tags     */
+/* ------------------------------------------------------------------ */
+
+/* Undo toast (named "Marked … as Done — Undo" snackbar) */
+
+.ans-dash-undo-toast {
+	position: fixed;
+	left: 50%;
+	bottom: 24px;
+	transform: translateX(-50%);
+	z-index: 100002;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	max-width: min(560px, calc(100vw - 32px));
+	padding: 10px 14px;
+	background: #1d2327;
+	color: #fff;
+	border-radius: 8px;
+	box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+	font-size: 13px;
+}
+
+.ans-dash-undo-msg {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.ans-dash-undo-btn {
+	background: transparent;
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	border-radius: 4px;
+	color: #7fb2ff;
+	font-weight: 700;
+	font-size: 13px;
+	padding: 4px 12px;
+	cursor: pointer;
+	flex: 0 0 auto;
+}
+
+.ans-dash-undo-btn:hover {
+	background: rgba(255, 255, 255, 0.12);
+	color: #a8ccff;
+}
+
+.ans-dash-undo-close {
+	background: transparent;
+	border: 0;
+	color: rgba(255, 255, 255, 0.7);
+	font-size: 17px;
+	line-height: 1;
+	padding: 2px 4px;
+	cursor: pointer;
+	flex: 0 0 auto;
+}
+
+.ans-dash-undo-close:hover {
+	color: #fff;
+}
+
+/* Checklist drag-order affordances (Open column) */
+
+.ans-dash-check-col-open .ans-dash-check-row {
+	cursor: grab;
+}
+
+.ans-dash-check-row.is-dragging {
+	opacity: 0.45;
+}
+
+.ans-dash-check-row.is-drop-before {
+	box-shadow: inset 0 3px 0 0 var(--ans-accent, #2b5797);
+}
+
+.ans-dash-check-row.is-drop-after {
+	box-shadow: inset 0 -3px 0 0 var(--ans-accent, #2b5797);
+}
+
+/* Subtask indentation (single level) */
+
+.ans-dash-check-row.is-subtask {
+	padding-left: 44px;
+	position: relative;
+}
+
+.ans-dash-check-row.is-subtask::before {
+	content: "↳";
+	position: absolute;
+	left: 24px;
+	top: 10px;
+	color: var(--ans-muted, #646970);
+	font-size: 12px;
+}
+
+/* Clickable task text (opens the detail modal) */
+
+.ans-dash-check-task.is-clickable {
+	cursor: pointer;
+}
+
+.ans-dash-check-task.is-clickable:hover,
+.ans-dash-check-task.is-clickable:focus-visible {
+	color: var(--ans-accent, #2b5797);
+	text-decoration: underline;
+}
+
+/* "Added By" chip + Done At stamp */
+
+.ans-dash-chip-addedby {
+	background: #fdf0e2;
+	color: #8a5a1c;
+}
+
+.ans-dash-check-doneat {
+	color: var(--ans-muted, #646970);
+	font-size: 11px;
+	white-space: nowrap;
+}
+
+/* "+ New tag" control (toolbar popover) */
+
+.ans-dash-newtag {
+	position: relative;
+}
+
+.ans-dash-newtag > summary {
+	cursor: pointer;
+	padding: 6px 12px;
+	border: 1px solid var(--ans-border);
+	border-radius: 4px;
+	background: #fff;
+	list-style: none;
+	font-size: 13px;
+	white-space: nowrap;
+}
+
+.ans-dash-newtag-box {
+	position: absolute;
+	z-index: 30;
+	top: calc(100% + 4px);
+	left: 0;
+	display: flex;
+	gap: 6px;
+	background: #fff;
+	border: 1px solid var(--ans-border);
+	border-radius: 6px;
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+	padding: 10px;
+}
+
+.ans-dash-newtag-input {
+	padding: 5px 8px;
+	border: 1px solid var(--ans-border);
+	border-radius: 4px;
+	font-size: 13px;
+	width: 150px;
+}
+
+/* Card head dot + id */
+
+.ans-dash-card-id-wrap {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+}
+
+/* Task detail modal */
+
+.ans-dash-detail-modal {
+	max-width: 520px;
+}
+
+.ans-dash-detail-head {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-bottom: 4px;
+}
+
+.ans-dash-detail-meta {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 2px 14px;
+	margin: 0 0 14px;
+	padding: 10px 12px;
+	background: var(--ans-bg, #f6f7f8);
+	border: 1px solid var(--ans-border, #d5d9de);
+	border-radius: 6px;
+}
+
+.ans-dash-detail-meta-label {
+	font-size: 11px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	color: var(--ans-muted, #646970);
+	margin: 0;
+	align-self: baseline;
+}
+
+.ans-dash-detail-meta-value {
+	font-size: 13px;
+	margin: 0;
+	word-break: break-word;
+}
+
+.ans-dash-detail-notes,
+.ans-dash-detail-links {
+	resize: vertical;
+	font-family: inherit;
+	line-height: 1.4;
+}
+
+.ans-dash-link-list {
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+	margin: -4px 0 10px;
+}
+
+.ans-dash-link {
+	font-size: 12px;
+	color: var(--ans-accent, #2b5797);
+	word-break: break-all;
+	text-decoration: underline;
+}
+
+/* ------------------------------------------------------------------ */
+/* v1.3.0 additions: progress meter, steps, "Send to Claude Desktop"   */
+/* ------------------------------------------------------------------ */
+
+/* Slim progress meter: track + fill + % label */
+
+.ans-dash-progress {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	width: 100%;
+	margin-top: 6px;
+}
+
+.ans-dash-progress-track {
+	flex: 1 1 auto;
+	display: block;
+	height: 6px;
+	border-radius: 3px;
+	background: #e3e6ea;
+	overflow: hidden;
+	min-width: 60px;
+}
+
+.ans-dash-progress-fill {
+	display: block;
+	height: 100%;
+	border-radius: 3px;
+	background: var(--ans-accent, #2b5797);
+	transition: width 0.25s ease;
+}
+
+.ans-dash-progress-fill.is-complete {
+	background: #2e7d32; /* ANS green when 100% */
+}
+
+.ans-dash-progress-pct {
+	flex: 0 0 auto;
+	font-size: 11px;
+	font-weight: 600;
+	color: var(--ans-muted, #646970);
+	min-width: 30px;
+	text-align: right;
+}
+
+/* Checklist row variant: sits under the task text inside the flex row */
+
+.ans-dash-progress-row {
+	flex-basis: 100%;
+	max-width: 340px;
+	margin-top: 3px;
+}
+
+/* Detail-modal variant: prominent near the top */
+
+.ans-dash-progress-detail {
+	margin: 0 0 12px;
+}
+
+.ans-dash-progress-detail .ans-dash-progress-track {
+	height: 9px;
+	border-radius: 5px;
+}
+
+.ans-dash-progress-detail .ans-dash-progress-pct {
+	font-size: 13px;
+}
+
+/* Compact per-row "→ Claude" button (checklist rows + board cards) */
+
+.ans-dash-claude-btn {
+	background: transparent;
+	border: 1px solid var(--ans-border, #d5d9de);
+	border-radius: 10px;
+	color: var(--ans-muted, #646970);
+	font-size: 11px;
+	line-height: 1.3;
+	padding: 1px 8px;
+	cursor: pointer;
+	flex: 0 0 auto;
+	white-space: nowrap;
+}
+
+.ans-dash-claude-btn:hover,
+.ans-dash-claude-btn:focus-visible {
+	border-color: var(--ans-accent, #2b5797);
+	color: var(--ans-accent, #2b5797);
+	background: #eef3fa;
+}
+
+/* Detail-modal "Send to Claude Desktop" block */
+
+.ans-dash-claude-send {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin: 0 0 14px;
+}
+
+.ans-dash-claude-primary {
+	font-size: 13px;
+	padding: 8px 16px;
+}
+
+.ans-dash-claude-web {
+	font-size: 12px;
+	color: var(--ans-muted, #646970);
+	text-decoration: underline;
+}
+
+.ans-dash-claude-web:hover {
+	color: var(--ans-accent, #2b5797);
+}
+
+/* Detail-modal read-only step checklist */
+
+.ans-dash-steps-title {
+	margin: 0 0 6px;
+	font-size: 12px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	color: var(--ans-muted, #646970);
+}
+
+.ans-dash-steps {
+	list-style: none;
+	margin: 0 0 14px;
+	padding: 8px 12px;
+	background: var(--ans-bg, #f6f7f8);
+	border: 1px solid var(--ans-border, #d5d9de);
+	border-radius: 6px;
+}
+
+.ans-dash-step {
+	display: flex;
+	align-items: flex-start;
+	gap: 8px;
+	padding: 3px 0;
+	font-size: 13px;
+}
+
+.ans-dash-step-mark {
+	flex: 0 0 auto;
+	color: var(--ans-muted, #646970);
+	line-height: 1.4;
+}
+
+.ans-dash-step.is-done .ans-dash-step-mark {
+	color: #2e7d32; /* ANS green check */
+	font-weight: 700;
+}
+
+.ans-dash-step.is-done .ans-dash-step-text {
+	text-decoration: line-through;
+	color: var(--ans-muted, #646970);
+}
+
+.ans-dash-step-text {
+	word-break: break-word;
+}
+
+/* ------------------------------------------------------------------ */
+/* New Task modal                                                      */
+/* ------------------------------------------------------------------ */
+
+.ans-dash-modal-overlay {
+	position: fixed;
+	inset: 0;
+	z-index: 100000;
+	background: rgba(0, 0, 0, 0.45);
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	padding: 8vh 16px 16px;
+	overflow-y: auto;
+}
+
+.ans-dash-modal {
+	background: var(--ans-card-bg, #fff);
+	border-radius: 8px;
+	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+	padding: 20px 22px;
+	width: 100%;
+	max-width: 420px;
+}
+
+.ans-dash-modal-title {
+	margin: 0 0 12px;
+	font-size: 17px;
+}
+
+.ans-dash-form-row {
+	display: block;
+	margin-bottom: 10px;
+}
+
+.ans-dash-form-label {
+	display: block;
+	font-size: 12px;
+	font-weight: 600;
+	color: var(--ans-muted);
+	margin-bottom: 3px;
+}
+
+.ans-dash-form-input {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 6px 8px;
+	border: 1px solid var(--ans-border);
+	border-radius: 4px;
+	font-size: 13px;
+	background: #fff;
+}
+
+.ans-dash-form-error {
+	margin: 8px 0;
+	padding: 8px 10px;
+	border-radius: 4px;
+	background: #fcebea;
+	border: 1px solid #e8a0a2;
+	color: #8a1f21;
+	font-size: 13px;
+}
+
+.ans-dash-modal-actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 8px;
+	margin-top: 14px;
+}
+
+.ans-dash-btn-primary {
+	background: var(--ans-accent);
+	border-color: var(--ans-accent);
+	color: #fff;
+	font-weight: 600;
+}
+
+.ans-dash-btn-primary:hover {
+	color: #fff;
+	opacity: 0.9;
+}
+
+.ans-dash-btn-primary:disabled {
+	opacity: 0.6;
+	cursor: default;
+}
+
+/* ------------------------------------------------------------------ */
+/* Print (checklist is meant to be notebook-like on paper too)         */
+/* ------------------------------------------------------------------ */
+
+@media print {
+	.ans-dash-toolbar,
+	.ans-dash-notice,
+	.ans-dash-owner-banner,
+	.ans-dash-modal-overlay,
+	.ans-dash-undo-toast,
+	.ans-dash-color-pop,
+	.ans-dash-claude-btn {
+		display: none !important;
+	}
+
+	.ans-dash-list-group,
+	.ans-dash-check-row {
+		break-inside: avoid;
+	}
+
+	/* Stack the Open / Done columns on paper so rows never split. */
+	.ans-dash-checklist {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* ------------------------------------------------------------------ */
+/* Misc                                                                */
+/* ------------------------------------------------------------------ */
+
+.ans-dash-loading,
+.ans-dash-empty {
+	color: var(--ans-muted);
+	font-style: italic;
+	padding: 20px 0;
+}
+
+.ans-dash-error {
+	color: var(--ans-overdue);
+	padding: 12px;
+	background: #fcebea;
+	border: 1px solid #e8a0a2;
+	border-radius: 6px;
+}
